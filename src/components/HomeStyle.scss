@@ -1,0 +1,43 @@
+
+
+
+.home-page{
+    position:absolute;
+    width:60%;
+    top:30%;
+    left:20%;
+    background-color:#12332f;
+    margin:auto;
+    padding:40px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    border:solid 3px #202929;
+    border-radius:6px;
+
+    h1{
+        font-size: 2rem;
+        color:#e7e0c8;
+        font-weight:bold;
+        font-style:italic;
+        text-align:left;
+        margin:20px 0 20px 0;
+    }
+
+    .start-quiz{
+        background-color:#e7e0c6;
+        color:#606b5b;
+        font-size:1.5rem;
+        padding:15px 20px;
+        border-radius:6px;
+        font-weight:bold;
+        border:none;
+        cursor: pointer;
+       
+    }
+
+    img{
+        width:100%;
+        border-radius:12px;
+    }
+}
