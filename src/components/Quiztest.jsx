@@ -2,6 +2,7 @@ import { QuestionComponent } from "./QuestionComponent";
 import { useState, useEffect } from "react";
 import { Loader } from "./Loader";
 import { useFetchData } from "../Hooks/useFetchData";
+import "./QuizStyle.scss";
 
 function QuizTest() {
   const { quiz } = useFetchData();
@@ -39,9 +40,9 @@ const nextQuestion =()=>{
       return (
         <div key={question.id}>
           <h3>{question.question}</h3>
-          <div>
-            <button onClick={() => handleAnswerSelect(true)}>True</button>
-            <button onClick={() => handleAnswerSelect(false)}>False</button>
+          <div className="flex">
+            <button className="quizbtn" onClick={() => handleAnswerSelect(true)}>True</button>
+            <button className="quizbtn" onClick={() => handleAnswerSelect(false)}>False</button>
           </div>
         
         </div>
@@ -59,11 +60,11 @@ const nextQuestion =()=>{
   };
 
   return (
-    <div>
-      <h2>Quiz Test</h2>
+    <div className="quizWrapper">
+      <h2>Select Correct answer</h2>
       {currentQuestionIndex < questions.length ? renderQuestion() : <Loader />}
       {selectedAnswers[currentQuestionIndex] && (
-            <button onClick={nextQuestion}>Next Question</button>
+            <button className="quizbtn" onClick={nextQuestion}>Next Question</button>
           )}
     </div>
   );
