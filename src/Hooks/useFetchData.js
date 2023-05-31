@@ -5,6 +5,7 @@ const useFetchData = () => {
   const data =
     "http://my-json-server.typicode.com/DanielBarbakadze/Advanced-JS-and-React-Basics/db";
   const EXPIRATION_TIME = 10 * 60 * 1000;
+  console.log(data)
 
   useEffect(() => {
     const fetchDataFromLocalStorage = () => {
