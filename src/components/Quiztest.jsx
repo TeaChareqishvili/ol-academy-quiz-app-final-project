@@ -28,6 +28,7 @@ function QuizTest() {
     setCurrentQuestion((prevQuestion) => prevQuestion + 1);
     setSelectedValue("");
     progressClick();
+  
   };
 
   return (
