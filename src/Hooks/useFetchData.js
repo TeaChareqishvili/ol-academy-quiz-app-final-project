@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const useFetchData = () => {
   const [quiz, setQuiz] = useState();
   const data =
-    "http://my-json-server.typicode.com/DanielBarbakadze/Advanced-JS-and-React-Basics/db";
+    "https://my-json-server.typicode.com/MirasGitHub/api-for-ol-academy-final-project/db?fbclid=IwAR3t6zfG-pZTbYuL1-404toLZhHGGiZvXo_LtFPWld5su0iDdcwG0oZ7QhY";
   const EXPIRATION_TIME = 10 * 60 * 1000;
   console.log(data)
 

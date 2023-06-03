@@ -1,73 +1,67 @@
-import { QuestionComponent } from "./QuestionComponent";
-import { useState, useEffect } from "react";
-import { Loader } from "./Loader";
-import { useFetchData } from "../Hooks/useFetchData";
-import "./QuizStyle.scss";
+import React, { useState } from 'react';
+import {useFetchData} from "../Hooks/useFetchData"
+import {Loader} from "./Loader"
 
 function QuizTest() {
   const { quiz } = useFetchData();
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [selectedAnswers, setSelectedAnswers] = useState([]);
-  const questions = quiz?.questions || [];
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [selectedValue, setSelectedValue] = useState('');
 
-  const handleAnswerSelect = (answer) => {
-    setSelectedAnswers((prevAnswers) => [...prevAnswers, answer]);
-    // setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-       
-  };
-
-const nextQuestion =()=>{
-  if (handleAnswerSelect){
-    setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-  }
-}
-
-  useEffect(() => {
-    if (currentQuestionIndex >= questions.length) {
-      // Quiz is complete, do something with the selected answers
-      console.log("Selected Answers:", selectedAnswers);
-    }
-  }, [currentQuestionIndex, questions.length, selectedAnswers]);
-
-  const renderQuestion = () => {
-    const question = questions[currentQuestionIndex];
-
-    if (!question) {
-      return <Loader />;
-    }
-
-    if (question.type === "boolean") {
-      return (
-        <div key={question.id}>
-          <h3>{question.question}</h3>
-          <div className="flex">
-            <button className="quizbtn" onClick={() => handleAnswerSelect(true)}>True</button>
-            <button className="quizbtn" onClick={() => handleAnswerSelect(false)}>False</button>
-          </div>
-        
-        </div>
-      );
-    }
-
-    return (
-      <QuestionComponent
-        question={question.question}
-        options={question.options}
-        index={currentQuestionIndex}
-        onSelectAnswer={handleAnswerSelect}
-      />
-    );
+  const handleNextQuestion = () => {
+    setCurrentQuestion((prevQuestion) => prevQuestion + 1);
+    console.log(selectedValue);
   };
 
   return (
-    <div className="quizWrapper">
-      <h2>Select Correct answer</h2>
-      {currentQuestionIndex < questions.length ? renderQuestion() : <Loader />}
-      {selectedAnswers[currentQuestionIndex] && (
-            <button className="quizbtn" onClick={nextQuestion}>Next Question</button>
+    <div>
+      {quiz ? (
+        <form>
+          {currentQuestion < quiz.questions.length ? (
+            <div key={quiz.questions[currentQuestion].id}>
+              <p>{quiz.questions[currentQuestion].question}</p>
+              {quiz.questions[currentQuestion].type === 'single' ? (
+                quiz.questions[currentQuestion].options.map((option) => (
+                  <div key={option}>
+                    <input type='radio' name='single'   value={option}
+                      checked={selectedValue === option}
+                      onChange={(e)=>setSelectedValue(e.target.value)} />
+                    <label>{option}</label>
+                  </div>
+                ))
+              ) : quiz.questions[currentQuestion].type === 'multiple' ? (
+                quiz.questions[currentQuestion].options.map((option) => (
+                  <div key={option}>
+                    <input type='checkbox'     value={option}
+                      name={option}
+                    
+                      onChange={(e)=>setSelectedValue(e.target.value)} />
+                    <label>{option}</label>
+                  </div>
+                ))
+              ) : quiz.questions[currentQuestion].type === 'boolean' ? (
+                <div>
+                  <input type='radio' name='boolean'   value='True'
+                    checked={selectedValue === 'True'}
+                    onChange={(e)=>setSelectedValue(e.target.value)} />
+                  <label>True</label>
+                  <input type='radio' name='boolean'  value='False'
+                    checked={selectedValue === 'False'}
+                    onChange={(e)=>setSelectedValue(e.target.value)} />
+                  <label>False</label>
+                </div>
+              ) : null}
+              <button onClick={handleNextQuestion}>Next</button>
+            </div>
+          ) : (
+            <p>Quiz completed!</p>
           )}
+        </form>
+      ) : (
+        <Loader />
+      )}
     </div>
   );
 }
+
 
 export { QuizTest };
