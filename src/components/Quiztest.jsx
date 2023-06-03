@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ProgressBarLoad } from "./ProgressBarLoad";
 import { useFetchData } from "../Hooks/useFetchData";
 import { Loader } from "./Loader";
 
@@ -6,14 +7,33 @@ function QuizTest() {
   const { quiz } = useFetchData();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedValue, setSelectedValue] = useState("");
+  const [progress, setProgress] = useState(0);
+  const totalQuestion = quiz?.questions || [];
+  const [eachQuestion, addQuestion] = useState(0)
+  let total = ((100 / totalQuestion.length));
+
+
+  
+
+  const progressClick = () => {
+    if (progress < 100) {
+      setProgress(progress + total);
+        addQuestion(eachQuestion+1)
+        
+    } 
+    
+  };
 
   const handleNextQuestion = () => {
     setCurrentQuestion((prevQuestion) => prevQuestion + 1);
-    console.log(selectedValue);
+    setSelectedValue("");
+    progressClick();
   };
 
   return (
     <div>
+       <p>{eachQuestion} out of {totalQuestion.length}</p>
+      <ProgressBarLoad progress={progress} />
       {quiz ? (
         <form>
           {currentQuestion < quiz.questions.length ? (
@@ -62,7 +82,9 @@ function QuizTest() {
                   <label>False</label>
                 </div>
               ) : null}
-              <button onClick={handleNextQuestion}>Next</button>
+              {selectedValue ? (
+                <button onClick={handleNextQuestion}>Next</button>
+              ) : null}
             </div>
           ) : (
             <p>Quiz completed!</p>
