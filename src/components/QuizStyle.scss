@@ -1,4 +1,11 @@
-
+form{
+  .green{
+    background:green;
+  }
+  .red{
+    background:red;
+  }
+}
 .quizWrapper{
     position:absolute;
     top:50%;
@@ -53,15 +60,9 @@
         font-weight:bold;
         margin-top:15px;
     }
-   
-.options.green {
-    background-color: green;
-  }
-  
-  .options.red {
-    background-color: red;
-  }
+
 
 }
+
 
 

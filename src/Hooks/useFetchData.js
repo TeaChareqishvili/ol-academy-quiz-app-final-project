@@ -5,14 +5,14 @@ const useFetchData = () => {
   const data =
     "https://my-json-server.typicode.com/MirasGitHub/api-for-ol-academy-final-project/db?fbclid=IwAR3t6zfG-pZTbYuL1-404toLZhHGGiZvXo_LtFPWld5su0iDdcwG0oZ7QhY";
   const EXPIRATION_TIME = 10 * 60 * 1000;
-  console.log(data)
+ 
 
   useEffect(() => {
     const fetchDataFromLocalStorage = () => {
       const storedData = localStorage.getItem("quizData");
       const storedTimestamp = localStorage.getItem("quizDataTimestamp");
       const currentTime = Date.now();
-      console.log("take from local storage");
+    
 
       if (
         storedData &&
@@ -30,13 +30,13 @@ const useFetchData = () => {
 
       if (storedData) {
         setQuiz(storedData);
-        console.log("setquiz");
+       
       } else {
         try {
           const response = await fetch(data);
           const jsonData = await response.json();
           setQuiz(jsonData);
-          console.log("getfetch");
+         
 
           saveDataToLocalStorage(jsonData);
         } catch (error) {
