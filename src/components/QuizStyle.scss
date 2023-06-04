@@ -1,68 +1,68 @@
 form{
   .green{
-    background:green;
+    color:green;
   }
   .red{
-    background:red;
+    color:red;
   }
 }
-.quizWrapper{
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    border:3px solid #000000;
-    background-color:#13322e;
-    padding:50px;
-    color:#e6e0c8;
+
+
+
+.formContainer{
+    max-width:70%;
+    width:100%;
+    margin: 50px auto
+}
+.formWrapper{
+    padding:40px 30px;
     display:flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color:#d2cfcf;
+    border:4px solid #e6e0c8;   
 
-    h2{
+
+    .progressQuestionCount{
         font-size:2rem;
         font-weight:bold;
-        margin-bottom:10px;
+        color:#12332f;
+        padding:20px
     }
 
-    h3{
+    .question{
+        color:#12332f;
+        padding:10px;
         font-size:1.5rem;
         font-weight:bold;
-        margin:10px 0 15px 0;
-        letter-spacing: 1.2px;
+        letter-spacing: 1.3px;
     }
 
-    .options{
-        background-color:#e6e0c8;
-        border-radius:5px;
-        cursor:pointer;
-        border:solid 2px #000000;
-        color:#13322e;
-        padding:10px;
-        margin:7px 0;
-    }
     label{
-        margin-left:5px;
-        cursor:pointer;
-        font-size:1rem;
-
-    }    
-  
-    .quizbtn{
-        background-color:#e6e0c8;
-        border:#000000;
-        color:#13322e;
-        padding:15px 20px;
-        border-radius:5px;
-        cursor:pointer;
-        font-size:1.3rem;
+        // background-color:#e6e0c8;
+        // padding:10px 20px;
+         margin-left:5px;
+        // width:100px;
+        // border-radius:5px;
+        // color:#12332f;
+        font-size:1.5rem;
         font-weight:bold;
-        margin-top:15px;
+        cursor:pointer;
+    }
+   
+    .answers{
+        border:solid 2px black;
+        margin-bottom:10px;
+        padding:10px 20px;
+        border-radius:5px;
     }
 
-
+    button{
+        background-color:#8A0A0A;
+        color:#e6e0c8;
+        padding:15px 30px;
+        border-radius:10px;
+        cursor: pointer;
+    }
 }
-
-
-

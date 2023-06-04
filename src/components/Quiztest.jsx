@@ -47,7 +47,7 @@ function QuizTest() {
     const { options, correct_answer } = currentQuizQuestion;
     checkSingleAnswers(currentQuizQuestion, correct_answer);
 
-    //check multiple choice logic
+    
     if (currentQuizQuestion.type === "multiple") {
       const updatedAnswerStatus = selectedValue.map((answer) => {
         return {
@@ -60,7 +60,7 @@ function QuizTest() {
 
       for (let i = 0; i < updatedAnswerStatus.length; i++) {
         if (updatedAnswerStatus[i].isCorrect) {
-          console.log(updatedAnswerStatus[i].answer, "nia");
+       
           correctAnswerCount++;
         }
       }
@@ -74,22 +74,23 @@ function QuizTest() {
     setTimeout(() => {
       setCurrentQuestion((prevQuestion) => prevQuestion + 1);
       resetValues();
-    }, 1000);
+    }, 500);
   };
 
   console.log({ point });
 
   return (
-    <div>
-      <p>
-        {eachQuestion} out of {totalQuestion.length}
+    <div className="formContainer">
+    <div className="formWrapper">
+      <p className="progressQuestionCount">
+        {eachQuestion} out of {totalQuestion.length} questions
       </p>
       <ProgressBarLoad progress={progress} />
       {quiz ? (
         <form onSubmit={(event) => event.preventDefault()}>
           {currentQuestion < quiz.questions.length ? (
             <div key={quiz.questions[currentQuestion].id}>
-              <p>{quiz.questions[currentQuestion].question}</p>
+              <p className='question'>{quiz.questions[currentQuestion].question}</p>
               {quiz.questions[currentQuestion].type !== "multiple" ? (
                 <Single
                   quiz={quiz}
@@ -119,6 +120,7 @@ function QuizTest() {
       ) : (
         <Loader />
       )}
+    </div>
     </div>
   );
 }

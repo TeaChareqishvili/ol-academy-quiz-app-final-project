@@ -12,7 +12,7 @@ function Single({
   return (
     <>
       {quiz.questions[currentQuestion].options.map((option) => (
-        <div key={option}>
+        <div className="answers" key={option}>
           <input
             type="radio"
             name="single"

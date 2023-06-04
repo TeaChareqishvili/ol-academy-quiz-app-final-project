@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+
 
 function Multiple({
   quiz,
@@ -32,7 +32,7 @@ function Multiple({
   return (
     <>
       {quiz.questions[currentQuestion].options.map((option, id) => (
-        <div key={option}>
+        <div className="answers" key={option}>
           <input
             type="checkbox"
             value={option}
