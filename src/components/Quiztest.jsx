@@ -47,7 +47,6 @@ function QuizTest() {
     const { options, correct_answer } = currentQuizQuestion;
     checkSingleAnswers(currentQuizQuestion, correct_answer);
 
-    
     if (currentQuizQuestion.type === "multiple") {
       const updatedAnswerStatus = selectedValue.map((answer) => {
         return {
@@ -60,11 +59,10 @@ function QuizTest() {
 
       for (let i = 0; i < updatedAnswerStatus.length; i++) {
         if (updatedAnswerStatus[i].isCorrect) {
-       
           correctAnswerCount++;
         }
       }
-      
+
       if (correctAnswerCount === updatedAnswerStatus.length) {
         setPoint(point + 1);
       }
@@ -81,46 +79,49 @@ function QuizTest() {
 
   return (
     <div className="formContainer">
-    <div className="formWrapper">
-      <p className="progressQuestionCount">
-        {eachQuestion} out of {totalQuestion.length} questions
-      </p>
-      <ProgressBarLoad progress={progress} />
-      {quiz ? (
-        <form onSubmit={(event) => event.preventDefault()}>
-          {currentQuestion < quiz.questions.length ? (
-            <div key={quiz.questions[currentQuestion].id}>
-              <p className='question'>{quiz.questions[currentQuestion].question}</p>
-              {quiz.questions[currentQuestion].type !== "multiple" ? (
-                <Single
-                  quiz={quiz}
-                  correct={correct}
-                  selectedValue={selectedValue}
-                  setSelectedValue={setSelectedValue}
-                  currentQuestion={currentQuestion}
-                />
-              ) : quiz.questions[currentQuestion].type === "multiple" ? (
-                <Multiple
-                  quiz={quiz}
-                  correct={correct}
-                  selectedValue={selectedValue}
-                  setSelectedValue={setSelectedValue}
-                  currentQuestion={currentQuestion}
-                  answerStatus={answerStatus}
-                />
-              ) : null}
-              {selectedValue && (
-                <button onClick={() => handleNextQuestion()}>Next</button>
-              )}
-            </div>
-          ) : (
-            <p>Quiz completed!</p>
-          )}
-        </form>
-      ) : (
-        <Loader />
-      )}
-    </div>
+      <div className="formWrapper">
+        {quiz ? (
+          <form onSubmit={(event) => event.preventDefault()}>
+            {currentQuestion < quiz.questions.length ? (
+              <div key={quiz.questions[currentQuestion].id}>
+                <p className="progressQuestionCount">
+                  {eachQuestion} out of {totalQuestion.length} questions
+                </p>
+                <ProgressBarLoad progress={progress} />
+                <p className="question">
+                  {quiz.questions[currentQuestion].question}
+                </p>
+                {quiz.questions[currentQuestion].type !== "multiple" ? (
+                  <Single
+                    quiz={quiz}
+                    correct={correct}
+                    selectedValue={selectedValue}
+                    setSelectedValue={setSelectedValue}
+                    currentQuestion={currentQuestion}
+                  />
+                ) : quiz.questions[currentQuestion].type === "multiple" ? (
+                  <Multiple
+                    quiz={quiz}
+                    correct={correct}
+                    selectedValue={selectedValue}
+                    setSelectedValue={setSelectedValue}
+                    currentQuestion={currentQuestion}
+                    answerStatus={answerStatus}
+                  />
+                ) : null}
+                {selectedValue && (
+                  <button onClick={() => handleNextQuestion()}>Next</button>
+                )}
+              </div>
+            ) : (
+              <p>Quiz completed!</p>
+              // <Loader/>
+            )}
+          </form>
+        ) : (
+          <Loader />
+        )}
+      </div>
     </div>
   );
 }
