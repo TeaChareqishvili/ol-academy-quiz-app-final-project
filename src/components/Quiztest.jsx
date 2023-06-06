@@ -73,7 +73,7 @@ function QuizTest() {
     setTimeout(() => {
       setCurrentQuestion((prevQuestion) => prevQuestion + 1);
       resetValues();
-    }, 500);
+    }, 1000);
   };
 
   console.log({ point });
