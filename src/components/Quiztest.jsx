@@ -4,6 +4,7 @@ import { useFetchData } from "../Hooks/useFetchData";
 import { Loader } from "./Loader";
 import { Single } from "./inputs/Single";
 import { Multiple } from "./inputs/Multiple";
+import { Results } from "./Results";
 import "./QuizStyle.scss";
 
 function QuizTest() {
@@ -114,8 +115,8 @@ function QuizTest() {
                 )}
               </div>
             ) : (
-              <p>Quiz completed!</p>
-              // <Loader/>
+             <Results point={point} totalQuestion={totalQuestion}/>
+             
             )}
           </form>
         ) : (
