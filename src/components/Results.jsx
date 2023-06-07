@@ -16,7 +16,7 @@ function Results({ point, totalQuestion }) {
         <button onClick={()=>setPopup(true)}>Try Again</button>
         <button>See Attempts History</button>
       </div>
-      {popUp && <PopUp close={()=>setPopup(false)}/> }
+      {popUp && <PopUp close={()=>setPopup(false)} point={point}/> }
     </div>
   );
 }

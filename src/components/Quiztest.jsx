@@ -82,7 +82,7 @@ function QuizTest() {
     <div className="formContainer">
       <div className="formWrapper">
         {quiz ? (
-          <form onSubmit={(event) => event.preventDefault()}>
+          <div className="quizquiz">
             {currentQuestion < quiz.questions.length ? (
               <div key={quiz.questions[currentQuestion].id}>
                 <p className="progressQuestionCount">
@@ -118,7 +118,7 @@ function QuizTest() {
              <Results point={point} totalQuestion={totalQuestion}/>
              
             )}
-          </form>
+          </div>
         ) : (
           <Loader />
         )}
