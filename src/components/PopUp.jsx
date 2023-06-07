@@ -1,12 +1,12 @@
 import "./PopupStyle.scss";
-import { NavLink, useNavigate} from "react-router-dom";
+ import { NavLink,useNavigate } from "react-router-dom";
 import { useRef, useEffect } from "react";
 
 
 function PopUp({ close, point }) {
   const popupRef = useRef(null);
   const wrapperRef = useRef(null);
-  const navigate = useNavigate();
+ const navigate = useNavigate();
 
 
 
@@ -29,16 +29,27 @@ function PopUp({ close, point }) {
   });
 
   const SavePointsAndNavigate = () => {
-    const date = new Date();
-    const savedPoints = localStorage.getItem("savedPoints") || {};
-    const updatedPoints = {
-      ...savedPoints,
-      [date]: point,
-    };
-    localStorage.setItem("savedPoints", JSON.stringify(updatedPoints));
+    // const date = new Date();
+    // const savedPoints = JSON.parse(localStorage.getItem("savedPoints")) || {};
+    // const updatedPoints = {
+    //   ...savedPoints,
+    //   [date]: point, //???????
+    // };
+    // localStorage.setItem("savedPoints", JSON.stringify(updatedPoints));
+
+
+     const quizResult =[
+      {
+        point: point,
+        date: new Date()
+      }
+     ];
+   localStorage.setItem('points', JSON.stringify(quizResult))
+   const finalResult = JSON.parse(localStorage.getItem('points'));
     close();
-    navigate("/home");
-    console.log(updatedPoints)
+    navigate("/"); // ამ ნაწილზე ვმუშაობ ვიცი ის არ არის რაც უნდა იყოს :დ
+   
+    console.log(finalResult)
   };
  
 
@@ -49,7 +60,7 @@ function PopUp({ close, point }) {
         <div className="popUpBtn">
           <button onClick={SavePointsAndNavigate}>Yes</button>
           <nav>
-          <NavLink to="/home">
+          <NavLink to="/">
             <button>No</button>
           </NavLink>
         </nav>
