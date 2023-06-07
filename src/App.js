@@ -6,9 +6,9 @@ function App() {
   return (
     <div className="App">
        <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route  path="/quiztest" element={<QuizTest/>} />
-        <Route/>
+        {/* <Route path="./home" element={<Home/>}/> */}
       </Routes>
     </div>
   );
