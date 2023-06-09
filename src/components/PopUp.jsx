@@ -1,14 +1,11 @@
 import "./PopupStyle.scss";
- import { NavLink,useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useRef, useEffect } from "react";
-
 
 function PopUp({ close, point }) {
   const popupRef = useRef(null);
   const wrapperRef = useRef(null);
- const navigate = useNavigate();
-
-
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleClick = (e) => {
@@ -29,29 +26,28 @@ function PopUp({ close, point }) {
   });
 
   const SavePointsAndNavigate = () => {
-    // const date = new Date();
-    // const savedPoints = JSON.parse(localStorage.getItem("savedPoints")) || {};
-    // const updatedPoints = {
-    //   ...savedPoints,
-    //   [date]: point, //???????
-    // };
-    // localStorage.setItem("savedPoints", JSON.stringify(updatedPoints));
-
-
-     const quizResult =[
+    const quizResult = [
       {
         point: point,
-        date: new Date()
-      }
-     ];
-   localStorage.setItem('points', JSON.stringify(quizResult))
-   const finalResult = JSON.parse(localStorage.getItem('points'));
+        date: new Date(),
+      },
+    ];
+
+    const storedResults = JSON.parse(localStorage.getItem("quizResults")) || [];
+
+    const updatedResults = Array.isArray(storedResults) ? storedResults : [];
+
+    const newResults = [...updatedResults, ...quizResult];
+
+    localStorage.setItem("quizResults", JSON.stringify(newResults));
+
+    const finalResults = JSON.parse(localStorage.getItem("quizResults")) || [];
+
+    console.log("Final Results:", finalResults);
+
     close();
-    navigate("/"); // ამ ნაწილზე ვმუშაობ ვიცი ის არ არის რაც უნდა იყოს :დ
-   
-    console.log(finalResult)
+    navigate("/");
   };
- 
 
   return (
     <div className="popupWrapper" ref={wrapperRef}>
@@ -60,10 +56,10 @@ function PopUp({ close, point }) {
         <div className="popUpBtn">
           <button onClick={SavePointsAndNavigate}>Yes</button>
           <nav>
-          <NavLink to="/">
-            <button>No</button>
-          </NavLink>
-        </nav>
+            <NavLink to="/">
+              <button>No</button>
+            </NavLink>
+          </nav>
         </div>
       </div>
     </div>

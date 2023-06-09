@@ -22,7 +22,7 @@ function Multiple({
     let isCorrect = false;
     for (let i = 0; i < answerStatus.length; i++) {
       if (answerStatus[i].answer === option && answerStatus[i].isCorrect) {
-        console.log(answerStatus[i].answer, "nia");
+        // console.log(answerStatus[i].answer, "nia");
         isCorrect = true;
       }
     }
