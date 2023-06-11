@@ -1,6 +1,7 @@
 import "./PopupStyle.scss";
 import { useState } from "react";
 import { PopUp } from "./PopUp";
+import { NavLink } from "react-router-dom";
 
 function Results({ point, totalQuestion }) {
 
@@ -14,7 +15,12 @@ function Results({ point, totalQuestion }) {
       </p>
       <div className="resultBtn">
         <button onClick={()=>setPopup(true)}>Try Again</button>
-        <button>See Attempts History</button>
+        <nav>
+            <NavLink to="/history">
+              <button>See Attempts History</button>
+            </NavLink>
+          </nav>
+      
       </div>
       {popUp && <PopUp close={()=>setPopup(false)} point={point}/> }
     </div>
