@@ -10,6 +10,9 @@ function Home() {
           <NavLink to="/QuizTest">
             <button className="start-quiz">Start Quiz</button>
           </NavLink>
+          <NavLink to="/history">
+            <button className="start-quiz">See History Page</button>
+          </NavLink>
         </nav>
       </div>
       <div>

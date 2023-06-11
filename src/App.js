@@ -2,6 +2,8 @@ import { Routes, Route } from "react-router-dom";
 import { Home } from "./components/Home";
 import { QuizTest } from "./components/Quiztest";
 import { History } from "./components/History";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (
