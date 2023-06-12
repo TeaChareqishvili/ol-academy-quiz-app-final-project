@@ -33,10 +33,12 @@ function Multiple({
           <input
             type="checkbox"
             value={option}
+            id={option.toString()}
             name={option}
             onChange={(e) => handleCurrentAnswer(e)}
           />
           <label
+            htmlFor={option.toString()}
             className={correct ? handleCorrect(option) : "undefined"}
             // className={
             //   selectedValue === quiz.questions[currentQuestion].correct_answer

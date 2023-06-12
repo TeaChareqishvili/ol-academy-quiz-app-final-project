@@ -85,10 +85,12 @@ function QuizTest() {
           <div className="quizquiz">
             {currentQuestion < quiz.questions.length ? (
               <div key={quiz.questions[currentQuestion].id}>
-                <p className="progressQuestionCount">
-                  {eachQuestion} out of {totalQuestion.length} questions
+                <div className="bar">
+                <p className="progressQuestionCount"> Answered: {" "}
+                  {eachQuestion}/{totalQuestion.length} 
                 </p>
                 <ProgressBarLoad progress={progress} />
+                </div>
                 <p className="question">
                   {quiz.questions[currentQuestion].question}
                 </p>
@@ -110,9 +112,11 @@ function QuizTest() {
                     answerStatus={answerStatus}
                   />
                 ) : null}
+                <div className="nextbutton">
                 {selectedValue && (
                   <button onClick={() => handleNextQuestion()}>Next</button>
                 )}
+                </div>
               </div>
             ) : (
              <Results point={point} totalQuestion={totalQuestion}/>

@@ -1,15 +1,10 @@
-// form{
-//   .green{
-//     color:green;
-//   }
-//   .red{
-//     color:red;
-//   }
-// }
+
 
 .quizquiz{
     .green{
         color:green;
+        font-size:2rem;
+        transition: ease-in-out 0.5s;
       }
       .red{
         color:red;
@@ -18,11 +13,16 @@
 
 
 .quizContainer{
-    width:70%;
-    margin: 50px auto
+ 
+   display:flex;
+   justify-content: center;
+   align-items: center;
+   margin-top:50px;
 }
 .quizWrapper{
+    
     padding:40px 30px;
+    width:70%;
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -44,6 +44,7 @@
         font-size:1.5rem;
         font-weight:bold;
         letter-spacing: 1.3px;
+        color:#8A0A0A;
     }
 
     label{
@@ -59,10 +60,10 @@
     }
    
     .answers{
-        border:solid 2px black;
+        border:solid 3px #12322e;
         margin-bottom:10px;
         padding:10px 20px;
-        border-radius:5px;
+        border-radius:15px 5px 15px 5px;
     }
 
     button{
@@ -71,5 +72,29 @@
         padding:15px 30px;
         border-radius:10px;
         cursor: pointer;
+        font-size:1.5rem;
+        font-weight: bold;
+        letter-spacing: 1.3px;
+        transition: ease-in-out 0.5s;
+        margin:0 20px 0 20px;
+    }
+
+    button:hover{
+      background-color:#12332f;
+      transition: ease-in-out 0.5s;
+
+    }
+    .nextbutton{
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      margin-top:20px;
+    }
+
+    .multiple{
+      font-size:1rem;
+      text-align: center;
+      padding:10px;
+      letter-spacing: 1.3px;
     }
 }
