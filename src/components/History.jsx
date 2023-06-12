@@ -8,15 +8,13 @@ function History() {
   );
 
   useEffect(() => {
-    finalResults.sort((a, b) => b.point - a.point);
-
-    console.log("sorted points", finalResults);
-
-    finalResults.map((resultA, resultB) => {
-      if (resultA.point === resultB.point) {
-        return resultB.date - resultA.date;
-      }
-      return null; // ???
+    finalResults.sort((a, b) => {
+        if (a.point !== b.point) {
+          return b.point - a.point; 
+        } else {
+          return new Date(b.date) - new Date(a.date);
+        }
+      
     });
     console.log("sorted by date", finalResults);
 
