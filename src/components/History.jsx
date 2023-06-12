@@ -31,6 +31,7 @@ function History() {
         </thead>
         <tbody>
           {finalResults.map((data, index) => (
+          
             <tr key={index}>
               <td>{data.point}</td>
               <td>{data.date}</td>
