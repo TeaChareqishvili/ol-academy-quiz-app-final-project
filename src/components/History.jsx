@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from "react";
-
+import "./HistoryStyle.scss";
 
 function History() {
   const finalResults = useMemo(
@@ -23,7 +23,7 @@ function History() {
   }, [finalResults]);
 
   return (
-    <div>
+    <div className="tableWrapper">
       <table>
         <thead>
           <tr>

@@ -1,12 +1,18 @@
 
-.tablestyle{
-   
-   
-    width:100%;
-    height:100vh;
+.tableWrapper{
+  
+  
+   padding:30px;
 
-    table{
-        width:50%;
-    }
+   th, td {
+    border: 2px solid black;
+    padding:10px 20px;
+    cursor:pointer;
+  }
+
+   td:hover{
+    background-color: grey;
+    color:brown;
+  }
 }
 
