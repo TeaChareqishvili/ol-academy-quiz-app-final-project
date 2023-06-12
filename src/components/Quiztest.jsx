@@ -79,8 +79,8 @@ function QuizTest() {
   console.log({ point });
 
   return (
-    <div className="formContainer">
-      <div className="formWrapper">
+    <div className="quizContainer">
+      <div className="quizWrapper">
         {quiz ? (
           <div className="quizquiz">
             {currentQuestion < quiz.questions.length ? (

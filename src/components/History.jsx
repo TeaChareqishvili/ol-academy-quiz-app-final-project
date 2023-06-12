@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import "./HistoryStyle.scss";
 
 function History() {
@@ -6,19 +6,25 @@ function History() {
     () => JSON.parse(localStorage.getItem("quizResults")) || [],
     []
   );
+ 
+ const [sorted, setSorted] = useState([])
 
   useEffect(() => {
-    finalResults.sort((a, b) => {
+ setSorted(finalResults.sort((a, b) => {
         if (a.point !== b.point) {
           return b.point - a.point; 
         } else {
           return new Date(b.date) - new Date(a.date);
         }
       
-    });
+    }) );
     console.log("sorted by date", finalResults);
 
+
+
   }, [finalResults]);
+
+
 
   return (
     <div className="tableWrapper">
@@ -30,8 +36,8 @@ function History() {
           </tr>
         </thead>
         <tbody>
-          {finalResults.map((data, index) => (
-          
+          {sorted.map((data, index) => (
+        
             <tr key={index}>
               <td>{data.point}</td>
               <td>{data.date}</td>

@@ -14,11 +14,11 @@ function Home() {
   return (
     <div className="home-page">
       <h1>Home Page</h1>
-      <div>
+      <div >
         <p className="prev-result">Last result was:</p>
         {lastResult && (
           <p className="prev-result">
-            {lastResult.point} Point / Date {lastResult.date} 
+            {lastResult.point}{lastResult.point>1 ? " Points" : ' Point'} / Date {lastResult.date} 
           </p>
         )}
         <nav>

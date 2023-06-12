@@ -1,5 +1,3 @@
-
-
 function Multiple({
   quiz,
   correct,
@@ -16,13 +14,11 @@ function Multiple({
       setSelectedValue(selectedValue.filter((selected) => selected !== value));
     }
   };
-  // const [style, setStyle] = useState("");
 
   const handleCorrect = (option) => {
     let isCorrect = false;
     for (let i = 0; i < answerStatus.length; i++) {
       if (answerStatus[i].answer === option && answerStatus[i].isCorrect) {
-        // console.log(answerStatus[i].answer, "nia");
         isCorrect = true;
       }
     }
@@ -31,7 +27,8 @@ function Multiple({
 
   return (
     <>
-      {quiz.questions[currentQuestion].options.map((option, id) => (
+      <p className="multiple">Choose multiple asnwers:</p>
+      {quiz.questions[currentQuestion].options.map((option) => (
         <div className="answers" key={option}>
           <input
             type="checkbox"

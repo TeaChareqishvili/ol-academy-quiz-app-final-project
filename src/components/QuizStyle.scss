@@ -1,11 +1,11 @@
-form{
-  .green{
-    color:green;
-  }
-  .red{
-    color:red;
-  }
-}
+// form{
+//   .green{
+//     color:green;
+//   }
+//   .red{
+//     color:red;
+//   }
+// }
 
 .quizquiz{
     .green{
@@ -17,19 +17,18 @@ form{
 }
 
 
-.formContainer{
-    max-width:70%;
-    width:100%;
+.quizContainer{
+    width:70%;
     margin: 50px auto
 }
-.formWrapper{
+.quizWrapper{
     padding:40px 30px;
     display:flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color:#d2cfcf;
-    border:4px solid #e6e0c8;   
+    border:4px solid #12322e;   
 
 
     .progressQuestionCount{
