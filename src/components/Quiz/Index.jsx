@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { ProgressBarLoad } from "../ProgressBar/ProgressBarLoad";
-import {useFetchData} from "../../hooks/useFetchData";
+import {useFetchData} from "../../Hooks/useFetchData";
 import { Loader } from "./Loader";
-import { Single } from "../Inputs/Single";
-import { Multiple } from "../Inputs/Multiple";
+import { Single } from "../inputs/Single";
+import { Multiple } from "../inputs/Multiple";
 import { Results } from "../Results/Results";
 import "./Styles.scss";
 
