@@ -1,0 +1,63 @@
+.result{
+    em{
+        font-size:2rem;
+        font-weight:bold;
+        color:#980B0B;
+        padding-bottom:15px;
+    }
+    font-size:1.5rem;
+    letter-spacing: 1.2px;
+    color:#980B0B;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    span{
+        color:#446048;
+        font-weight:bold;
+        font-size:2rem;
+        text-align: center;
+        padding-top:15px;
+    }
+}
+.resultBtn{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:40px 0;
+}
+.popupWrapper{
+    width:100vw;
+    height:100vh;
+    background-color:rgba(42, 41, 41, 0.7);
+    position:absolute;
+    top:0;
+    left:0;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popUp{
+    width:35%;
+    background-color:rgb(193, 206, 206);
+    border-radius:6px;
+    height:40%;
+    padding:30px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2{
+        color:#980B0B;
+        padding:20px;
+        font-size:1.5rem;
+        letter-spacing: 1.3px;
+    }
+}
+.popUpBtn{
+    width:100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top:20px;
+}

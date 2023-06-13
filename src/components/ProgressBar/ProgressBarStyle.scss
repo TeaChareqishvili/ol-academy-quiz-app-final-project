@@ -1,0 +1,26 @@
+.progressBarWrapper{
+   width:300px;
+   padding:20px;
+}
+
+.progressBar{
+    width:100%;
+    background-color:rgb(197, 197, 197);
+    border:solid 2px #12332f;
+    border-radius:7px;
+    height:40px;
+}
+
+.progressFill{
+   height:100%;
+   background-color:red;
+    border-radius:6px;
+    transition: width 0.4s ease-in-out;
+}
+
+.bar{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
