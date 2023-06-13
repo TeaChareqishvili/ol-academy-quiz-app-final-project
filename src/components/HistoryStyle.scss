@@ -1,7 +1,7 @@
 
 .tableWrapper{
-  
-  
+   width:100vw;
+   height:100vh;
    padding:30px;
 
    th, td {
@@ -14,5 +14,10 @@
     background-color: grey;
     color:brown;
   }
+
+.context-menu{
+    background-color: burlywood;
+    border: 2px solid grey;
+}
 }
 
