@@ -1,20 +1,20 @@
 import React, { useState } from "react";
-import { ProgressBarLoad } from "./ProgressBarLoad";
-import { useFetchData } from "../Hooks/useFetchData";
+import { ProgressBarLoad } from "../ProgressBar/ProgressBarLoad";
+import { useFetchData } from "../../hooks/useFetchData";
 import { Loader } from "./Loader";
-import { Single } from "./inputs/Single";
-import { Multiple } from "./inputs/Multiple";
-import { Results } from "./Results";
-import "./QuizStyle.scss";
+import { Single } from "../Inputs/Single";
+import { Multiple } from "../Inputs/Multiple";
+import { Results } from "../Results/Results";
+import "./Styles.scss";
 
-function QuizTest() {
+const Quiz = () => {
   const { quiz } = useFetchData();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedValue, setSelectedValue] = useState([]);
   const [progress, setProgress] = useState(0);
   const totalQuestion = quiz?.questions || [];
   const [eachQuestion, addQuestion] = useState(0);
-  let total = 100 / totalQuestion.length;
+  const total = 100 / totalQuestion.length;
   const [point, setPoint] = useState(0);
   const [correct, setCorrect] = useState(false);
 
@@ -82,14 +82,15 @@ function QuizTest() {
     <div className="quizContainer">
       <div className="quizWrapper">
         {quiz ? (
-          <div className="quizquiz">
+          <div className="answer-background">
             {currentQuestion < quiz.questions.length ? (
               <div key={quiz.questions[currentQuestion].id}>
                 <div className="bar">
-                <p className="progressQuestionCount"> Answered: {" "}
-                  {eachQuestion}/{totalQuestion.length} 
-                </p>
-                <ProgressBarLoad progress={progress} />
+                  <p className="progressQuestionCount">
+                    {" "}
+                    Answered: {eachQuestion}/{totalQuestion.length}
+                  </p>
+                  <ProgressBarLoad progress={progress} />
                 </div>
                 <p className="question">
                   {quiz.questions[currentQuestion].question}
@@ -113,14 +114,13 @@ function QuizTest() {
                   />
                 ) : null}
                 <div className="nextbutton">
-                {selectedValue && (
-                  <button onClick={() => handleNextQuestion()}>Next</button>
-                )}
+                  {selectedValue && (
+                    <button onClick={() => handleNextQuestion()}>Next</button>
+                  )}
                 </div>
               </div>
             ) : (
-             <Results point={point} totalQuestion={totalQuestion}/>
-             
+              <Results point={point} totalQuestion={totalQuestion} />
             )}
           </div>
         ) : (
@@ -129,6 +129,6 @@ function QuizTest() {
       </div>
     </div>
   );
-}
+};
 
-export { QuizTest };
+export { Quiz };

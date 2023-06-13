@@ -1,6 +1,4 @@
-
 .result{
-    
     em{
         font-size:2rem;
         font-weight:bold;
@@ -13,8 +11,6 @@
     display:flex;
     flex-direction: column;
     align-items: center;
-   
-
     span{
         color:#446048;
         font-weight:bold;
@@ -23,15 +19,12 @@
         padding-top:15px;
     }
 }
-
 .resultBtn{
     display:flex;
     justify-content: space-between;
     align-items: center;
     margin:40px 0;
 }
-
-
 .popupWrapper{
     width:100vw;
     height:100vh;
@@ -61,7 +54,6 @@
         letter-spacing: 1.3px;
     }
 }
-
 .popUpBtn{
     width:100%;
     display: flex;

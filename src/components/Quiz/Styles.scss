@@ -1,6 +1,4 @@
-
-
-.quizquiz{
+.answer-background{
     .green{
         color:green;
         font-size:2rem;
@@ -10,8 +8,6 @@
         color:red;
       }
 }
-
-
 .quizContainer{
  
    display:flex;
@@ -48,12 +44,7 @@
     }
 
     label{
-        // background-color:#e6e0c8;
-        // padding:10px 20px;
          margin-left:5px;
-        // width:100px;
-        // border-radius:5px;
-        // color:#12332f;
         font-size:1.5rem;
         font-weight:bold;
         cursor:pointer;

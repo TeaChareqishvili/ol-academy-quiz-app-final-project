@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import "./HistoryStyle.scss";
 
-function History() {
+const History = () => {
   const finalResults = useMemo(
     () => JSON.parse(localStorage.getItem("quizResults")) || [],
     []
@@ -38,6 +38,7 @@ function History() {
       localStorage.setItem("quizResults", JSON.stringify(updatedResults));
     }
   };
+  
   const handleClick = (event, index) => {
     event.stopPropagation();
     const x = event.clientX;
@@ -75,7 +76,7 @@ function History() {
 
   return (
     <div className="tableWrapper" ref={mainRef}>
-      {sorted ? (
+      {sorted && sorted.length > 0 ?(
         <>
           <p>All Results</p>
           <table ref={tableRef}>
@@ -115,6 +116,6 @@ function History() {
       </nav>
     </div>
   );
-}
+};
 
 export { History };

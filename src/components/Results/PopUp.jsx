@@ -2,12 +2,10 @@ import "./PopupStyle.scss";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useRef, useEffect } from "react";
 
-
-function PopUp({ close, point }) {
+const PopUp = ({ close, point }) => {
   const popupRef = useRef(null);
   const wrapperRef = useRef(null);
   const navigate = useNavigate();
-
 
   useEffect(() => {
     const handleClick = (e) => {
@@ -28,11 +26,11 @@ function PopUp({ close, point }) {
   });
 
   const SavePointsAndNavigate = () => {
-    const date = new Date().toLocaleString()
+    const date = new Date().toLocaleString();
     const quizResult = [
       {
         point: point,
-        date: date
+        date: date,
       },
     ];
 
@@ -47,12 +45,9 @@ function PopUp({ close, point }) {
     const finalResults = JSON.parse(localStorage.getItem("quizResults")) || [];
 
     console.log("Final Results:", finalResults);
-   
 
     close();
     navigate("/");
-
-  
   };
 
   return (
@@ -70,6 +65,6 @@ function PopUp({ close, point }) {
       </div>
     </div>
   );
-}
+};
 
 export { PopUp };
