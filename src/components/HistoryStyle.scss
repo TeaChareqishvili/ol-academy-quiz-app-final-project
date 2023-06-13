@@ -3,11 +3,23 @@
    width:100vw;
    height:100vh;
    padding:30px;
-
+   display:flex;
+   align-items:flex-start;
+   justify-content:space-evenly;
+ 
+p{
+    font-size:2rem;
+    font-weight: bold;
+    color:#e6e0c8;
+    font-style: italic;
+    margin-right:15px;
+}
    th, td {
-    border: 2px solid black;
-    padding:10px 20px;
+    border: 2px solid #11322e;
+    padding:20px 30px;
     cursor:pointer;
+    background-color:#e6e0c8 ;
+    color:#11322e;
   }
 
    td:hover{
@@ -16,8 +28,31 @@
   }
 
 .context-menu{
-    background-color: burlywood;
-    border: 2px solid grey;
+   background-color:#11322e;
+   color:#e6e0c8;
+   font-size:1rem;
+   font-weight: bold;
+   padding:10px 20px;
+   border-radius:5px;
+   cursor: pointer;
+}
+button{
+    background-color:#e7e0c6;
+    color:#606b5b;
+    font-size:1.5rem;
+    padding:15px 20px;
+    border-radius:6px;
+    font-weight:bold;
+    border:none;
+    transition:ease-in-out 0.8s;
+    cursor: pointer;
+   
+ 
+}
+button:hover{
+    background-color:#980B0B;
+    color:azure;
+    transition:ease-in-out 0.5s;
 }
 }
 

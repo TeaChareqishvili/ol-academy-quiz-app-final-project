@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState, useRef} from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
+import { NavLink } from "react-router-dom";
 import "./HistoryStyle.scss";
 
 function History() {
@@ -8,12 +9,12 @@ function History() {
   );
 
   const [sorted, setSorted] = useState([]);
- 
- const [menu, setMenu] = useState(false)
- const [position, setPosition] = useState({ x: 0, y: 0 });
- const mainRef = useRef(null);
- const tableRef = useRef(null);
 
+  const [menu, setMenu] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const mainRef = useRef(null);
+  const tableRef = useRef(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
   useEffect(() => {
     setSorted(
@@ -25,32 +26,43 @@ function History() {
         }
       })
     );
-    console.log("sorted by date", finalResults);
   }, [finalResults]);
 
-  const handleClick = (event) => {
+  const handleDelete = () => {
+    if (selectedIndex !== null) {
+      const updatedResults = finalResults.filter(
+        (_, index) => index !== selectedIndex
+      );
+      setSorted(updatedResults);
+      setMenu(false);
+      localStorage.setItem("quizResults", JSON.stringify(updatedResults));
+    }
+  };
+  const handleClick = (event, index) => {
+    event.stopPropagation();
     const x = event.clientX;
     const y = event.clientY;
-    console.log('Clicked at coordinates:', x, y);
-    setMenu(true)
+    console.log("Clicked at coordinates:", x, y);
+    setMenu(true);
     setPosition({ x, y });
+    setSelectedIndex(index);
   };
-  
+
   const menuStyles = {
-    position: 'absolute',
+    position: "absolute",
     left: position.x,
     top: position.y,
   };
 
   useEffect(() => {
     const menuHandleClick = (e) => {
-        console.log(e.target)
+      console.log(e.target);
       if (mainRef.current && tableRef.current) {
         if (
           mainRef.current.contains(e.target) &&
           !tableRef.current.contains(e.target)
         ) {
-          setMenu(false)
+          setMenu(false);
         }
       }
     };
@@ -63,31 +75,44 @@ function History() {
 
   return (
     <div className="tableWrapper" ref={mainRef}>
-      <table ref={tableRef}>
-        <thead>
-          <tr >
-            <th>#</th>
-            <th>Point</th>
-            <th>Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          {sorted.map((data, index) => (
-            <tr key={index}  onClick={handleClick}>
-              <td>{index + 1}</td>
-              <td>{data.point}</td>
-              <td>{data.date}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      {menu && (
-      <div className="context-menu" style={menuStyles}>
-        <ul>
-          <li>Delete</li>
-        </ul>
-      </div>
-    )}
+      {sorted ? (
+        <>
+          <p>All Results</p>
+          <table ref={tableRef}>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Point</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {sorted.map((data, index) => (
+                <tr key={index} onClick={(event) => handleClick(event, index)}>
+                  <td>{index + 1}</td>
+                  <td>{data.point}</td>
+                  <td>{data.date}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {menu && (
+            <div className="context-menu" style={menuStyles}>
+              <ul>
+                <li onClick={handleDelete}>Delete</li>
+              </ul>
+            </div>
+          )}
+        </>
+      ) : (
+        <p>No results found</p>
+      )}
+
+      <nav>
+        <NavLink to="/">
+          <button>Main Page</button>
+        </NavLink>
+      </nav>
     </div>
   );
 }
