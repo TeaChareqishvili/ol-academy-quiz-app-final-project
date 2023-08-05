@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/ol-academy-quiz-app-final-project/static/css/main.f6abc4a3.css",
-    "main.js": "/ol-academy-quiz-app-final-project/static/js/main.d808501e.js",
+    "main.js": "/ol-academy-quiz-app-final-project/static/js/main.a1271656.js",
     "index.html": "/ol-academy-quiz-app-final-project/index.html",
     "main.f6abc4a3.css.map": "/ol-academy-quiz-app-final-project/static/css/main.f6abc4a3.css.map",
-    "main.d808501e.js.map": "/ol-academy-quiz-app-final-project/static/js/main.d808501e.js.map"
+    "main.a1271656.js.map": "/ol-academy-quiz-app-final-project/static/js/main.a1271656.js.map"
   },
   "entrypoints": [
     "static/css/main.f6abc4a3.css",
-    "static/js/main.d808501e.js"
+    "static/js/main.a1271656.js"
   ]
 }
