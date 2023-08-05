@@ -1,20 +1,19 @@
 import { NavLink } from "react-router-dom";
 import "./HomeStyle.scss";
 import { useEffect, useState } from "react";
+import img from "../../assets/quizimg.jpeg";
 
 const Home = () => {
   const [result, setResult] = useState([]);
   useEffect(() => {
     const localStorageResults = JSON.parse(localStorage.getItem("quizResults"));
 
-    // Check if localStorageResults is not null before setting the state
     if (localStorageResults) {
       setResult(localStorageResults);
     }
   }, []);
   const { point, date } = result.length > 0 ? result[result.length - 1] : {};
 
-  // ... Rest of the component code remains unchanged ...
 
 
   return (
@@ -45,7 +44,7 @@ const Home = () => {
         </nav>
       </div>
       <div>
-        <img src="quiz.jpeg 20-30-48-133.jpeg" alt="quiz" />
+        <img src={img} alt="quiz" />
       </div>
     </div>
   );

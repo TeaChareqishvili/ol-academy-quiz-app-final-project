@@ -110,7 +110,7 @@ const History = () => {
       )}
 
       <nav>
-        <NavLink to="/">
+        <NavLink to="/ol-academy-quiz-app-final-project">
           <button>Main Page</button>
         </NavLink>
       </nav>

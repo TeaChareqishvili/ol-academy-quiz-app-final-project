@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/ol-academy-quiz-app-final-project" element={<Home />} />
         <Route path="/create" element={<Quiz />} />
         <Route path="/history" element={<History />} />
       </Routes>
