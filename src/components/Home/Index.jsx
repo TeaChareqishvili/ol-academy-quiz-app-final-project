@@ -7,9 +7,15 @@ const Home = () => {
   useEffect(() => {
     const localStorageResults = JSON.parse(localStorage.getItem("quizResults"));
 
-    setResult(localStorageResults);
+    // Check if localStorageResults is not null before setting the state
+    if (localStorageResults) {
+      setResult(localStorageResults);
+    }
   }, []);
   const { point, date } = result.length > 0 ? result[result.length - 1] : {};
+
+  // ... Rest of the component code remains unchanged ...
+
 
   return (
     <div className="home-page">
